@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lloyd Car Company – Electric Performance</title>
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0b0d10;
+            color: #eef2f6;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header / Nav */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #b0c4de 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a {
+            color: #9aa9b9;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a.tesla-link {
+            background: rgba(59, 130, 246, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            color: #ffffff;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links a.tesla-link i {
+            font-size: 0.9rem;
+            color: #3b82f6;
+        }
+
+        .nav-links a.tesla-link:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 0 5rem;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.12);
+            color: #7aa9ff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #3b82f6, #a0c4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #9aa9b9;
+            font-size: 1.2rem;
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background: none;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: #ffffff;
+            box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.6);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -10px rgba(59, 130, 246, 0.7);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #eef2f6;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            font-size: 1rem;
+        }
+
+        .hero-visual {
+            flex: 1 1 380px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .car-card {
+            background: linear-gradient(145deg, #14181f, #0c0f14);
+            padding: 2.5rem 2rem;
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .car-card i {
+            font-size: 5rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+        }
+
+        .car-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .car-card p {
+            color: #8596a8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .car-card .tesla-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #ffffff;
+            background: #1e293b;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .car-card .tesla-cta i {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #3b82f6;
+            filter: none;
+        }
+
+        .car-card .tesla-cta:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        /* Features section */
+        .features {
+            padding: 4rem 0 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: #12161c;
+            padding: 2rem 1.8rem;
+            border-radius: 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.25s ease;
+        }
+
+        .feature-item:hover {
+            border-color: rgba(59, 130, 246, 0.2);
+            background: #161b23;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-item p {
+            color: #8596a8;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            color: #6b7b8d;
+            font-size: 0.9rem;
+        }
+
+        .footer .tesla-footer-link {
+            color: #9aa9b9;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .footer .tesla-footer-link:hover {
+            color: #3b82f6;
+        }
+
+        .footer .tesla-footer-link i {
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 2.5rem 0 3.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.6rem;
+                font-size: 0.95rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-bolt"></i> Lloyd
+            </div>
+            <div class="nav-links">
+                <a href="#">Models</a>
+                <a href="#">Inventory</a>
+                <a href="#">Charging</a>
+                <a href="https://www.tesla.com/models" target="_blank" class="tesla-link">
+                    <i class="fas fa-external-link-alt"></i> Tesla Cars
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt" style="margin-right: 0.4rem;"></i> Electric since 2025
+                </div>
+                <h1>
+                    Drive the <span>future</span> with Lloyd
+                </h1>
+                <p>
+                    Lloyd Car Company brings you premium electric vehicles with cutting-edge technology,
+                    sustainable performance, and a touch of British elegance. Explore our range and
+                    discover why the future is electric.
+                </p>
+                <div class="cta-group">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-car"></i> View Lloyd Models
+                    </a>
+                    <!-- Tesla link prominent in CTA as well -->
+                    <a href="https://www.tesla.com/models" target="_blank" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> Explore Tesla Cars
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="car-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3>Tesla Partnership</h3>
+                    <p>Experience the pinnacle of electric innovation. Visit Tesla's official site to configure your dream car.</p>
+                    <!-- Direct Tesla car link with clear label -->
+                    <a href="https://www.tesla.com/models" target="_blank" class="tesla-cta">
+                        <i class="fas fa-external-link-alt"></i> Tesla Car Company
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Highlights -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Instant Torque</h4>
+                    <p>Lightning-fast acceleration with zero emissions, engineered for pure driving pleasure.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-battery-full"></i>
+                    <h4>Long Range</h4>
+                    <p>Go further with advanced battery technology and rapid charging capabilities.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Safety First</h4>
+                    <p>Built with a rigid safety cell and intelligent driver-assist systems as standard.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustainable</h4>
+                    <p>100% electric, crafted with recycled materials and a zero-compromise ethos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer with Tesla link again for convenience -->
+        <footer class="footer">
+            <div>© 2025 Lloyd Car Company. All rights reserved.</div>
+            <div>
+                <a href="https://www.tesla.com/models" target="_blank" class="tesla-footer-link">
+                    <i class="fas fa-external-link-alt"></i> Visit Tesla Car Company
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
